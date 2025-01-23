@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Improved font settings for better readability */
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* High contrast text colors by default */
+  body {
+    @apply bg-light-50 text-light-900;
+  }
+
+  /* Improved focus styles for keyboard navigation */
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent-500 ring-offset-2;
+  }
+
+  /* Skip to main content link for keyboard users */
+  .skip-to-content {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 
+           focus:px-4 focus:py-2 focus:bg-white focus:text-accent-600 focus:rounded-lg 
+           focus:shadow-lg focus:ring-2 focus:ring-accent-500;
+  }
+
+  /* Better heading hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  /* Enhanced button styles with proper hover/focus states */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl
+           bg-accent-gradient text-white font-medium
+           shadow-sm hover:shadow-md focus:ring-2 focus:ring-accent-500 focus:ring-offset-2
+           transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-xl
+           bg-light-100 text-light-900 font-medium
+           hover:bg-light-200 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2
+           transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Search bar animations */
+  .search-expand {
+    @apply transition-all duration-300 ease-out;
+    animation: searchExpand 0.3s ease-out forwards;
+  }
+
+  .search-collapse {
+    @apply transition-all duration-300 ease-out;
+    animation: searchCollapse 0.3s ease-out forwards;
+  }
+
+  /* Card styles with proper contrast */
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md
+           border border-light-200/50 transition-all duration-300;
+  }
+
+  /* Form input styles with proper focus states */
+  .form-input {
+    @apply w-full px-4 py-2 rounded-xl bg-light-100 border border-light-200
+           text-light-900 placeholder-light-500
+           focus:outline-none focus:ring-2 focus:ring-accent-500
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Navigation styles */
+  .nav-item {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl
+           text-light-700 hover:text-accent-600 hover:bg-light-100/50
+           focus:outline-none focus:ring-2 focus:ring-accent-500
+           transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-lg bg-white/90 border border-white/20;
+  }
+
+  /* Improved scrollbar styling */
+  .custom-scrollbar {
+    @apply scrollbar-thin scrollbar-thumb-light-300 
+           scrollbar-track-transparent hover:scrollbar-thumb-light-400;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-accent-gradient;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes searchExpand {
+  0% {
+    width: 44px;
+    opacity: 0.7;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes searchCollapse {
+  0% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 44px;
+    opacity: 0.7;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
