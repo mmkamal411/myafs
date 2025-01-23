@@ -87,7 +87,7 @@ const externalApps = [
   {
     name: 'SMaRT',
     icon: Briefcase,
-    url: 'https://smartafs.lightning.force.com/lightning/o/UserAppMenuItem/home',
+    url: 'https://outlook.office365.us/mail/',
     color: 'sky'
   },
   {
@@ -99,7 +99,7 @@ const externalApps = [
   {
     name: 'Jira',
     icon: Bug,
-    url: 'https://01110-afsdefense.msappproxy.us/secure/Dashboard.jspa',
+    url: 'https://01110-afsdefense.msappproxy.us',
     color: 'blue'
   },
   {
